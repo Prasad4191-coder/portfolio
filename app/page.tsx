@@ -3,7 +3,7 @@ import type React from "react"
 import { useEffect, useRef, useState, useMemo, useCallback } from "react"
 import { TypeAnimation } from "react-type-animation"
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion"
-import { ChevronDown, Code, ExternalLink, Github, Mail, Moon, Sun, User, Menu, X, Download } from "lucide-react"
+import { ChevronDown, Code, ExternalLink, Github, Mail, Moon, Sun, User, Menu, X, Download, Linkedin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -327,12 +327,12 @@ export default function Portfolio() {
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 aria-label="Toggle theme"
-                className="rounded-full"
+                className="rounded-full hidden md:flex"
               >
                 {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="icon"
                 className="md:hidden"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -373,11 +373,10 @@ export default function Portfolio() {
                           scrollToSection(item.ref as React.RefObject<HTMLDivElement>)
                           setIsMobileMenuOpen(false)
                         }}
-                        className={`w-full text-left px-4 py-2 rounded-md transition-colors ${
-                          activeSection === item.id
-                            ? "bg-primary text-primary-foreground"
-                            : "hover:bg-muted"
-                        }`}
+                        className={`w-full text-left px-4 py-2 rounded-md transition-colors ${activeSection === item.id
+                          ? "bg-primary text-primary-foreground"
+                          : "hover:bg-muted"
+                          }`}
                       >
                         {item.label}
                       </button>
@@ -387,16 +386,48 @@ export default function Portfolio() {
               </nav>
               <div className="p-4 border-t">
                 <div className="flex justify-center gap-4">
-                  {["github", "twitter", "linkedin", "dribbble"].map((social, index) => (
-                    <Link
-                      key={index}
-                      href="#"
-                      className="bg-muted p-2 rounded-full hover:bg-primary/10 transition-colors"
+                  <Link
+                    href="https://github.com/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-muted p-2 rounded-full hover:bg-primary/10 transition-colors"
+                  >
+                    <span className="sr-only">GitHub</span>
+                    <Github className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="https://linkedin.com/in/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-muted p-2 rounded-full hover:bg-primary/10 transition-colors"
+                  >
+                    <span className="sr-only">LinkedIn</span>
+                    <Linkedin className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="https://instagram.com/yourusername"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-muted p-2 rounded-full hover:bg-primary/10 transition-colors"
+                  >
+                    <span className="sr-only">Instagram</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
                     >
-                      <span className="sr-only">{social}</span>
-                      <Github className="w-5 h-5" />
-                    </Link>
-                  ))}
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -879,19 +910,52 @@ export default function Portfolio() {
                 </div>
               </div>
 
+              {/* Social Profiles */}
               <div className="mt-8">
-                <h4 className="font-bold mb-4">Social Profiles</h4>
-                <div className="flex gap-4">
-                  {["github", "twitter", "linkedin", "dribbble"].map((social, index) => (
-                    <Link
-                      key={index}
-                      href="#"
-                      className="bg-background p-3 rounded-full border hover:bg-primary/10 transition-colors"
+                <h4 className="font-bold mb-4 text-center md:text-left">Social Profiles</h4>
+                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                  <Link
+                    href="https://github.com/Prasad4191-coder"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-background p-3 rounded-full border hover:bg-primary/10 transition-colors hover:scale-110 transform duration-300"
+                  >
+                    <span className="sr-only">GitHub</span>
+                    <Github className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="https://linkedin.com/in/prasad-chattar-88272929b"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-background p-3 rounded-full border hover:bg-primary/10 transition-colors hover:scale-110 transform duration-300"
+                  >
+                    <span className="sr-only">LinkedIn</span>
+                    <Linkedin className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="https://instagram.com/prasad_chattar_4191/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-background p-3 rounded-full border hover:bg-primary/10 transition-colors hover:scale-110 transform duration-300"
+                  >
+                    <span className="sr-only">Instagram</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5"
                     >
-                      <span className="sr-only">{social}</span>
-                      <Github className="w-5 h-5" />
-                    </Link>
-                  ))}
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </motion.div>
